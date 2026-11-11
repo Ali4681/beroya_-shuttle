@@ -1,0 +1,37 @@
+# compiled
+/dist
+/node_modules
+/coverage
+*.tsbuildinfo
+
+# env
+.env
+.env.local
+.env.*.local
+.env.example
+
+# logs
+logs
+*.log
+npm-debug.log*
+
+# prisma
+prisma/*.db
+prisma/*.db-journal
+/src/generated
+
+# os / ide
+.DS_Store
+Thumbs.db
+.idea
+.vscode/*
+!.vscode/extensions.json
+
+# generated swagger snapshot for offline Phase 15 docs
+/scripts/.phase15
+
+# test
+/test-results
+
+# local MinIO / upload scratch
+/.data

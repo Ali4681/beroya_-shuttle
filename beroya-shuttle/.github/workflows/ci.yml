@@ -1,0 +1,80 @@
+name: CI
+
+on:
+  push:
+    branches: [main, master]
+  pull_request:
+
+jobs:
+  verify:
+    runs-on: ubuntu-latest
+    services:
+      postgres:
+        image: postgres:16-alpine
+        env:
+          POSTGRES_USER: beroya
+          POSTGRES_PASSWORD: beroya
+          POSTGRES_DB: beroya_shuttle
+        ports:
+          - 5432:5432
+        options: >-
+          --health-cmd "pg_isready -U beroya -d beroya_shuttle"
+          --health-interval 5s
+          --health-timeout 5s
+          --health-retries 10
+      redis:
+        image: redis:8-alpine
+        ports:
+          - 6379:6379
+        options: >-
+          --health-cmd "redis-cli ping"
+          --health-interval 5s
+          --health-timeout 5s
+          --health-retries 10
+    env:
+      DATABASE_URL: postgresql://beroya:beroya@localhost:5432/beroya_shuttle
+      REDIS_HOST: localhost
+      REDIS_PORT: "6379"
+      MOCK_REDIS: "false"
+      JWT_ACCESS_SECRET: ci-access-secret-change-me
+      JWT_REFRESH_SECRET: ci-refresh-secret-change-me
+      MINIO_ENDPOINT: localhost
+      MINIO_ACCESS_KEY: minioadmin
+      MINIO_SECRET_KEY: minioadmin
+      OTP_DEV_CODE: "000000"
+      SEED_ADMIN_PHONE: "+963900000000"
+      PORT: "3001"
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: "22"
+          cache: npm
+      - run: npm ci
+      - run: npx prisma generate
+      - run: npx prisma migrate deploy
+      - run: npm run lint:ci
+      - run: npm run typecheck
+      - run: npm test -- --coverage --runInBand
+      - run: npm run test:e2e
+      - run: npm run prisma:seed
+      - run: npm run build
+      - name: Start API
+        run: |
+          npm run start:prod &
+          for i in $(seq 1 40); do
+            if curl -fsS http://127.0.0.1:3001/health >/dev/null; then
+              exit 0
+            fi
+            sleep 2
+          done
+          exit 1
+      - run: npm run test:e2e
+        env:
+          PHASE14_E2E_BASE: http://127.0.0.1:3001/api/v1/shuttle
+      - run: npm run verify:phase14
+        env:
+          PHASE14_VERIFY_BASE: http://127.0.0.1:3001/api/v1/shuttle
+      - run: npm run verify:phase15
+        env:
+          PHASE15_DOCS_URL: http://127.0.0.1:3001/api/v1/shuttle/docs-json

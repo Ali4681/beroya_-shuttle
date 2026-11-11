@@ -1,0 +1,494 @@
+{
+  "App": {
+    "name": "Beroya on plus",
+    "description": "Beroya on plus admin dashboard"
+  },
+  "Common": {
+    "search": "Search",
+    "searchPlaceholder": "Search here...",
+    "enableNotifications": "Enable notifications",
+    "cancel": "Cancel",
+    "save": "Save",
+    "confirm": "Confirm",
+    "back": "Back",
+    "edit": "Edit",
+    "delete": "Delete",
+    "add": "Add",
+    "actions": "Actions",
+    "status": "Status",
+    "active": "Active",
+    "inactive": "Stopped",
+    "activeFemale": "Active",
+    "noOptions": "No options yet",
+    "language": "Language",
+    "arabic": "العربية",
+    "english": "English",
+    "languageCodeAr": "AR",
+    "languageCodeEn": "EN",
+    "switchingLanguage": "Switching language...",
+    "notifications": "Notifications",
+    "noNotifications": "No notifications yet",
+    "markAllRead": "Mark all as read",
+    "clearNotifications": "Clear notifications",
+    "notificationsDisabled": "Notifications are off in this browser",
+    "notificationsBlocked": "Notifications are blocked in browser settings. Allow them from the lock icon next to the address bar.",
+    "settings": "Settings",
+    "logout": "Log out",
+    "profile": "Profile",
+    "count": "Count",
+    "lightMode": "Switch to light mode",
+    "darkMode": "Switch to dark mode",
+    "close": "Close",
+    "closeForm": "Close form",
+    "required": "*"
+  },
+  "Auth": {
+    "metaTitle": "Sign in",
+    "welcome": "Welcome back",
+    "subtitle": "Enter your email and password to open the dashboard.",
+    "email": "Email",
+    "password": "Password",
+    "showPassword": "Show password",
+    "hidePassword": "Hide password",
+    "signIn": "Sign in",
+    "signingIn": "Signing in...",
+    "phone": "Phone number",
+    "code": "Verification code",
+    "codeDigit": "Digit {index} of {total}",
+    "sendCode": "Send code",
+    "sendingCode": "Sending code...",
+    "verify": "Verify & sign in",
+    "verifying": "Verifying...",
+    "codeSentTo": "We sent a verification code to {phone}",
+    "changePhone": "Change number",
+    "resendCode": "Resend code",
+    "resendIn": "Resend in {seconds}s",
+    "remember": "Remember me",
+    "success": "Signed in successfully",
+    "help": "Need help?",
+    "helpAction": "Contact Beroya on plus support",
+    "errors": {
+      "emailRequired": "Enter your email",
+      "emailInvalid": "Enter a valid email address",
+      "passwordInvalid": "Password must be at least 8 characters",
+      "phoneRequired": "Enter your phone number",
+      "phoneInvalid": "Enter a valid mobile number, e.g. 0912345678",
+      "codeRequired": "Enter the verification code",
+      "codeInvalid": "The code must be 6 digits",
+      "attemptsLeft": "{count, plural, =0 {no attempts left} one {# attempt left} other {# attempts left}}",
+      "notPanelRole": "This account cannot access the dashboard"
+    },
+    "brand": {
+      "badge": "Transport management platform",
+      "titleLine1": "Smart shuttle operations,",
+      "titleLine2": "fully under your control",
+      "lead": "One dashboard to manage",
+      "words": {
+        "institutions": "institutions",
+        "branches": "branches",
+        "lines": "lines",
+        "trips": "live trips"
+      },
+      "chips": {
+        "tracking": "Live tracking",
+        "safety": "Student safety",
+        "schedule": "Reliable schedules"
+      },
+      "mapTitle": "Line network",
+      "live": "Live",
+      "legendLines": "Lines",
+      "legendStops": "Stops",
+      "legendVehicles": "Vehicles"
+    },
+    "rights": "© {year} Beroya on plus. All rights reserved.",
+    "privacyPolicy": "Privacy Policy",
+    "termsOfUse": "Terms of Use"
+  },
+  "ColorField": {
+    "pickColor": "Click to pick a color",
+    "enterHex": "or enter the code manually"
+  },
+  "TimePicker": {
+    "aria": "Pick a time",
+    "hour": "Hour",
+    "minute": "Minute",
+    "period": "Period",
+    "am": "AM",
+    "pm": "PM"
+  },
+  "DatePicker": {
+    "aria": "Choose a date",
+    "placeholder": "Pick a date",
+    "today": "Today",
+    "clear": "Clear",
+    "previous": "Previous",
+    "next": "Next"
+  },
+  "Landing": {
+    "meta": {
+      "title": "Beroya on plus · Smart transport for schools, universities and companies",
+      "description": "Live bus tracking, boarding and drop-off for every rider, and instant notifications for parents — one platform to run institutional transport end to end."
+    },
+    "nav": {
+      "features": "Features",
+      "ecosystem": "Ecosystem",
+      "how": "How it works",
+      "apps": "Apps",
+      "safety": "Safety",
+      "faq": "FAQ",
+      "login": "Sign in",
+      "dashboard": "Dashboard",
+      "openMenu": "Open menu",
+      "closeMenu": "Close menu",
+      "home": "Home"
+    },
+    "hero": {
+      "badge": "The next generation of institutional transport",
+      "titleA": "Every trip, every rider,",
+      "titleB": "always in sight.",
+      "lead": "Beroya on plus brings operators, drivers, attendants and parents into one connected system: live bus tracking, boarding and drop-off for every rider, and instant alerts that arrive before anyone has to ask.",
+      "for": "Purpose-built for",
+      "words": {
+        "schools": "schools",
+        "universities": "universities",
+        "companies": "companies"
+      },
+      "primary": "Contact us",
+      "secondary": "Explore the platform",
+      "trust": {
+        "realtime": "Real-time updates",
+        "bilingual": "Arabic & English",
+        "secure": "Fine-grained roles"
+      },
+      "scroll": "Scroll to explore"
+    },
+    "mock": {
+      "title": "Operations room",
+      "live": "LIVE",
+      "activeTrips": "Active trips",
+      "onTime": "On time",
+      "boarded": "On board",
+      "route": "Morning line 7",
+      "eta": "Arriving in 6 min",
+      "bus": "Bus 12",
+      "notes": {
+        "boarded": {
+          "title": "Yousef boarded the bus",
+          "sub": "North District stop · just now"
+        },
+        "approaching": {
+          "title": "Bus approaching meeting point",
+          "sub": "Automatic alert to parents"
+        },
+        "delay": {
+          "title": "4-minute delay detected",
+          "sub": "Line 3 · ops room alerted"
+        },
+        "arrived": {
+          "title": "Sara arrived at school",
+          "sub": "Drop-off recorded · 7:42 AM"
+        }
+      },
+      "phoneTitle": "Morning trip",
+      "phoneStatus": "On the way",
+      "phoneEta": "6 min",
+      "phoneEtaLabel": "to arrival"
+    },
+    "stats": {
+      "types": "Institution types supported",
+      "roles": "User roles with their own access",
+      "events": "Event types recorded on every trip",
+      "live": "Live monitoring, around the clock"
+    },
+    "features": {
+      "eyebrow": "Everything you need",
+      "title": "One platform. Full control over every detail.",
+      "lead": "From the first meeting point to the last rider dropped off safely, every step is visible, recorded and manageable.",
+      "items": {
+        "tracking": {
+          "title": "Live map tracking",
+          "desc": "See every bus in real time, with automatic delay detection and alerts when tracking drops or resumes."
+        },
+        "boarding": {
+          "title": "Boarding & drop-off",
+          "desc": "Attendants mark every rider as boarded, not boarded or dropped off — and every correction is logged."
+        },
+        "notifications": {
+          "title": "Smart instant alerts",
+          "desc": "Automatic alerts for parents and students, or targeted messages to one line or everyone."
+        },
+        "incidents": {
+          "title": "Incidents & emergencies",
+          "desc": "Emergency and breakdown reports straight from the app, tracked until resolved."
+        },
+        "routes": {
+          "title": "Lines & meeting points",
+          "desc": "Draw lines with their stops, and pick up from home or from a meeting point."
+        },
+        "subscriptions": {
+          "title": "Subscriptions",
+          "desc": "Round trip or one way, billed monthly or per term."
+        },
+        "branches": {
+          "title": "Multi-branch",
+          "desc": "Run every branch and line from a single dashboard."
+        },
+        "audit": {
+          "title": "Full audit trail",
+          "desc": "Every action is known: who, what changed, and when."
+        },
+        "branding": {
+          "title": "Your identity",
+          "desc": "Your logo and colors across the dashboard and apps."
+        }
+      },
+      "demo": {
+        "boarded": "Boarded",
+        "pending": "Waiting",
+        "dropped": "Dropped",
+        "emergency": "Emergency",
+        "resolved": "Resolved",
+        "monthly": "Monthly",
+        "term": "Term",
+        "roundTrip": "Round trip"
+      }
+    },
+    "ecosystem": {
+      "eyebrow": "A connected ecosystem",
+      "title": "Seven roles, one harmonious experience",
+      "lead": "Everyone involved in a trip gets their own interface and precise permissions, all connected to the same live data.",
+      "tabs": {
+        "school": {
+          "label": "Schools",
+          "title": "Daily peace of mind for parents",
+          "desc": "Attendants record every child boarding and leaving, while parents follow the bus on the map and get notified at every key moment.",
+          "points": {
+            "p1": "Home or meeting-point pickup",
+            "p2": "Boarding & drop-off alert per child",
+            "p3": "An attendant on every trip"
+          }
+        },
+        "university": {
+          "label": "Universities",
+          "title": "Flexible commuting for hundreds",
+          "desc": "Students follow their own line and schedule, and know exactly when the bus reaches their meeting point.",
+          "points": {
+            "p1": "A dedicated student app",
+            "p2": "Flexible meeting points on every line",
+            "p3": "Term or monthly subscriptions"
+          }
+        },
+        "company": {
+          "label": "Companies",
+          "title": "Your team, on time",
+          "desc": "Organized staff transport lines with full operational visibility of every trip and vehicle.",
+          "points": {
+            "p1": "Reliable shift schedules",
+            "p2": "Automatic delay detection",
+            "p3": "A complete operations log"
+          }
+        }
+      },
+      "roles": {
+        "beroyaAdmin": "Beroya on plus admin",
+        "institutionAdmin": "Institution admin",
+        "parent": "Parent",
+        "student": "University student",
+        "employee": "Employee",
+        "driver": "Driver",
+        "attendant": "Attendant"
+      }
+    },
+    "steps": {
+      "eyebrow": "How it works",
+      "title": "From setup to first trip in four steps",
+      "items": {
+        "setup": {
+          "title": "Create your institution",
+          "desc": "Add the institution, its branches and brand identity, and invite your admin team."
+        },
+        "plan": {
+          "title": "Draw your lines",
+          "desc": "Define lines, stops and meeting points, then enroll riders and their subscriptions."
+        },
+        "assign": {
+          "title": "Assign the crew",
+          "desc": "Link drivers, attendants and vehicles to each trip, and swap them in one click when needed."
+        },
+        "run": {
+          "title": "Go live",
+          "desc": "Trips start from the driver app, and you follow everything live from the operations room."
+        }
+      }
+    },
+    "apps": {
+      "eyebrow": "An app for every role",
+      "title": "The whole trip, right in your hands",
+      "lead": "Light, clear apps that work in both languages and deliver alerts instantly.",
+      "tabs": {
+        "parent": {
+          "label": "Parent",
+          "title": "Know where your child is, now",
+          "desc": "A live map of the bus, an accurate arrival time, and a notification the moment your child boards and leaves.",
+          "points": {
+            "p1": "Live bus tracking",
+            "p2": "Boarding & drop-off alerts",
+            "p3": "Full trip history"
+          }
+        },
+        "student": {
+          "label": "Student",
+          "title": "No more pointless waiting",
+          "desc": "Know your line, your meeting point and exactly when the bus arrives.",
+          "points": {
+            "p1": "Meeting point & pickup time",
+            "p2": "Alert before the bus arrives",
+            "p3": "Subscription at a glance"
+          }
+        },
+        "driver": {
+          "label": "Driver",
+          "title": "A clear trip from the first stop",
+          "desc": "Stops in order, start and finish the trip, and report a breakdown or emergency in one tap.",
+          "points": {
+            "p1": "Stops in order",
+            "p2": "Automatic location sharing",
+            "p3": "Instant emergency button"
+          }
+        },
+        "attendant": {
+          "label": "Attendant",
+          "title": "Check in every rider with a tap",
+          "desc": "The rider list for every stop, with boarding, drop-off and corrections built in.",
+          "points": {
+            "p1": "Rider list per stop",
+            "p2": "Boarded · Not boarded · Dropped",
+            "p3": "Logged corrections"
+          }
+        }
+      },
+      "screen": {
+        "parentHeader": "Morning trip",
+        "onTheWay": "On the way",
+        "eta": "6 min",
+        "etaLabel": "to arrival",
+        "child": "Sara",
+        "childStatus": "Boarded · 7:24 AM",
+        "studentHeader": "My line today",
+        "meetingPoint": "North Gate meeting point",
+        "pickupTime": "8:10 AM",
+        "busNear": "Bus is 3 minutes away",
+        "subscription": "Term plan · active",
+        "driverHeader": "Current trip",
+        "nextStop": "Next stop",
+        "stops": {
+          "s1": "North District",
+          "s2": "Garden Square",
+          "s3": "University St.",
+          "s4": "School"
+        },
+        "emergency": "Emergency",
+        "endTrip": "End trip",
+        "attendantHeader": "Garden Square stop",
+        "riders": {
+          "r1": "Yousef",
+          "r2": "Sara",
+          "r3": "Layan",
+          "r4": "Omar"
+        },
+        "boarded": "Boarded",
+        "pending": "Waiting",
+        "absent": "Not boarded"
+      }
+    },
+    "safety": {
+      "eyebrow": "Safety first",
+      "title": "Every moment recorded, every emergency answered",
+      "lead": "A preserved event log for every trip, and automatic alerts to the operations room the moment something goes wrong.",
+      "points": {
+        "emergency": {
+          "title": "Emergency & breakdown button",
+          "desc": "Straight from the driver app to the operations room."
+        },
+        "tracking": {
+          "title": "Lost-tracking detection",
+          "desc": "Instant alerts when a bus signal drops and when it resumes."
+        },
+        "corrections": {
+          "title": "Logged corrections",
+          "desc": "Every change to a rider's status is recorded with who and when."
+        },
+        "access": {
+          "title": "Precise permissions",
+          "desc": "Each role sees only what concerns it, with managed sessions and devices."
+        }
+      },
+      "log": {
+        "title": "Trip event log",
+        "live": "LIVE",
+        "events": {
+          "started": "Trip started",
+          "arrived": "Arrived at North District stop",
+          "boarded": "Yousef boarded the bus",
+          "delay": "3-minute delay detected",
+          "dropped": "Sara dropped off at school",
+          "completed": "Trip completed successfully"
+        }
+      }
+    },
+    "faq": {
+      "eyebrow": "FAQ",
+      "title": "Everything you want to know",
+      "items": {
+        "q1": {
+          "q": "Which institutions does Beroya on plus support?",
+          "a": "Schools, universities and companies — each with an experience tailored to it: parents and attendants for schools, a student app for universities, and staff transport for companies."
+        },
+        "q2": {
+          "q": "How does a parent know their child boarded the bus?",
+          "a": "The attendant marks each child from their app, so the parent instantly gets a boarding and drop-off notification and can follow the bus on the map."
+        },
+        "q3": {
+          "q": "What happens if a bus breaks down or there is an emergency?",
+          "a": "The driver reports it in one tap and it instantly appears in the operations room as an open incident, tracked until resolved, with the option to swap the vehicle or driver."
+        },
+        "q4": {
+          "q": "Can we manage more than one branch?",
+          "a": "Yes. An institution runs all its branches, lines and vehicles from one dashboard, with data fully isolated between institutions."
+        },
+        "q5": {
+          "q": "Is the platform available in Arabic and English?",
+          "a": "Yes. The dashboard and apps work fully in both languages with right-to-left support, plus light and dark modes."
+        }
+      }
+    },
+    "cta": {
+      "title": "Ready for smarter, safer transport?",
+      "lead": "Make every trip visible and every rider safe, starting today.",
+      "primary": "Contact us",
+      "secondary": "Explore features"
+    },
+    "contact": {
+      "message": "Hello, I'd like to learn more about Beroya on plus."
+    },
+    "footer": {
+      "tagline": "Smart transport management for schools, universities and companies.",
+      "product": "Platform",
+      "access": "Access",
+      "legal": "Legal",
+      "privacyPolicy": "Privacy Policy",
+      "termsOfUse": "Terms of Use",
+      "rights": "© {year} Beroya on plus. All rights reserved.",
+      "backToTop": "Back to top"
+    }
+  },
+  "Legal": {
+    "privacyPolicy": "Privacy Policy",
+    "termsOfUse": "Terms of Use",
+    "backHome": "Back to home",
+    "version": "Version {version}",
+    "updated": "Last updated: {date}",
+    "errorTitle": "Could not load this document",
+    "errorLead": "Please try again later."
+  }
+}

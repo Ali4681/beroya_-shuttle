@@ -1,0 +1,3 @@
+-- AlterEnum
+ALTER TYPE "TripStudentStatus" ADD VALUE 'ABSENT';
+ALTER TYPE "TripEventType" ADD VALUE 'STUDENT_ABSENT';

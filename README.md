@@ -2,7 +2,7 @@
 
 # Beroya On + | Shuttle Platform
 
-**منصة متكاملة لإدارة النقل المدرسي والجامعي** — تجمع واجهة تشغيل ثنائية اللغة مع واجهة برمجية متعددة المؤسسات، لتنسيق الرحلات والأساطيل ومتابعة العمليات لحظياً.
+**An integrated school and university transportation platform** — combining a bilingual operations dashboard with a multi-institution API for coordinating trips, fleets, and live operations.
 
 ![Backend](https://img.shields.io/badge/Backend-NestJS_11-E0234E?logo=nestjs&logoColor=white)
 ![Frontend](https://img.shields.io/badge/Frontend-Next.js_16-black?logo=next.js)
@@ -14,48 +14,48 @@
 
 ---
 
-## نظرة عامة
+## Overview
 
-يتكون المستودع من تطبيقين يعملان معاً:
+This repository contains two applications that work together:
 
-| التطبيق | المجلد | الدور |
+| Application | Directory | Purpose |
 | --- | --- | --- |
-| **Backend API** | [`beroya-shuttle/`](beroya-shuttle/) | واجهة NestJS، قاعدة البيانات، العامل الخلفي، والتحديثات الآنية. |
-| **Web Dashboard** | [`shuttle_dashboard/`](shuttle_dashboard/) | لوحة إدارة عربية وإنجليزية لمشرفي بيرويا والمؤسسات. |
+| **Backend API** | [`beroya-shuttle/`](beroya-shuttle/) | NestJS API, database integration, background worker, and realtime gateway. |
+| **Web Dashboard** | [`shuttle_dashboard/`](shuttle_dashboard/) | Arabic and English operations console for Beroya and institution administrators. |
 
-الواجهة ترسل طلبات REST إلى الباك عبر مسار `/api/v1/shuttle`، وتتصل به للتحديثات الفورية عبر Socket.IO على `/realtime`.
+The dashboard sends REST requests to the backend under `/api/v1/shuttle` and connects to Socket.IO at `/realtime` for live updates.
 
-## قدرات المنصة
+## Platform capabilities
 
-- إدارة متعددة المؤسسات مع عزل بيانات كل مؤسسة.
-- مساحات عمل بحسب الدور: إدارة بيرويا، إدارة المؤسسة، السائق، المرافق، ولي الأمر، والطالب الجامعي.
-- تنظيم المسارات والرحلات اليومية وإدارة الأسطول والطلاب والطاقم.
-- خرائط ومتابعة الرحلات والتحديثات الآنية، مع إدارة الحوادث والإشعارات وسجل التدقيق.
-- واجهة عربية وإنجليزية تدعم اتجاه RTL، ومظهري العرض الفاتح والداكن.
+- Multi-institution operations with tenant data isolation.
+- Role-specific workflows for Beroya administrators, institution administrators, drivers, attendants, parents, and university students.
+- Route and daily trip planning, fleet and student management, and crew coordination.
+- Maps and live trip tracking, incident and notification management, and audit history.
+- Arabic and English interface with right-to-left support, plus light and dark themes.
 
-## التقنيات
+## Technology
 
-| المكوّن | التقنيات الرئيسية |
+| Component | Main technologies |
 | --- | --- |
-| Backend | NestJS 11، TypeScript، Prisma 7 |
-| Frontend | Next.js 16، React 19، TypeScript، Tailwind CSS 4 |
-| البيانات | PostgreSQL 16 |
-| المهام والتحديثات | Redis، BullMQ، Socket.IO |
-| الملفات | MinIO محلياً أو تخزين متوافق مع S3 |
-| الخرائط والترجمة | Leaflet، next-intl |
+| Backend | NestJS 11, TypeScript, Prisma 7 |
+| Frontend | Next.js 16, React 19, TypeScript, Tailwind CSS 4 |
+| Data | PostgreSQL 16 |
+| Jobs and realtime | Redis, BullMQ, Socket.IO |
+| File storage | MinIO locally or S3-compatible storage |
+| Maps and localization | Leaflet, next-intl |
 
-## المتطلبات
+## Requirements
 
-- Node.js 22 موصى به لتوافق موحد مع الباك؛ يحتاج الفرونت Node.js 20.9 أو أحدث.
+- Node.js 22 is recommended for consistent backend support; the frontend requires Node.js 20.9 or newer.
 - npm.
-- Docker Desktop أو Docker Engine مع Docker Compose.
-- الخدمات المحلية: PostgreSQL 16 وRedis 7 وMinIO، ويمكن تشغيلها عبر Compose الموجود في مجلد الباك.
+- Docker Desktop or Docker Engine with Docker Compose.
+- Local services: PostgreSQL 16, Redis 7, and MinIO. Start them with the Compose configuration in the backend directory.
 
-## التشغيل المحلي
+## Local development
 
-### 1. تشغيل الباك
+### 1. Start the backend
 
-افتح طرفية داخل `beroya-shuttle`:
+Open a terminal in `beroya-shuttle`:
 
 ```bash
 cp .env.example .env
@@ -63,15 +63,15 @@ npm ci
 docker compose up -d postgres redis minio minio-init
 ```
 
-في Windows PowerShell أنشئ ملف البيئة عبر:
+On Windows PowerShell, create the environment file with:
 
 ```powershell
 Copy-Item .env.example .env
 ```
 
-أكمل إعداد `.env` قبل تشغيل التطبيق. يلزم ضبط اتصال PostgreSQL (`DATABASE_URL`)، ومضيف Redis (`REDIS_HOST`)، ومفتاحي JWT، وإعدادات MinIO أو R2. للتشغيل المحلي المعتاد اضبط المنفذ `3001`، واستخدم إعدادات قاعدة البيانات المطابقة لـ Compose (`beroya` / `beroya`، قاعدة `beroya_shuttle`). راجع [توثيق الباك](beroya-shuttle/README.md) و`src/config/env.schema.ts` للتفاصيل.
+Configure `.env` before starting the application. Required settings include the PostgreSQL connection (`DATABASE_URL`), Redis host (`REDIS_HOST`), JWT secrets, and either MinIO or R2 settings. For a typical local setup, use port `3001` and the Compose database credentials (`beroya` / `beroya`, database `beroya_shuttle`). See the [backend documentation](beroya-shuttle/README.md) and `src/config/env.schema.ts` for details.
 
-بعد ضبط البيئة:
+After configuring the environment:
 
 ```bash
 npx prisma migrate deploy
@@ -80,15 +80,15 @@ npx prisma db seed
 npm run dev
 ```
 
-شغّل العامل الخلفي في طرفية أخرى عند الحاجة إلى معالجة المهام:
+To process background jobs, start the worker in a second terminal:
 
 ```bash
 npm run start:worker:dev
 ```
 
-### 2. تشغيل الفرونت
+### 2. Start the frontend
 
-افتح طرفية ثانية داخل `shuttle_dashboard`:
+Open another terminal in `shuttle_dashboard`:
 
 ```bash
 cp .env.example .env.local
@@ -96,58 +96,58 @@ npm ci
 npm run dev
 ```
 
-في PowerShell:
+On PowerShell:
 
 ```powershell
 Copy-Item .env.example .env.local
 ```
 
-افتح [http://localhost:3005](http://localhost:3005). إعدادات الفرونت الافتراضية توجه REST إلى `http://localhost:3001` عبر rewrite من Next.js، وتستخدم العنوان نفسه لاتصال Socket.IO.
+Open [http://localhost:3005](http://localhost:3005). By default, the frontend forwards REST requests to `http://localhost:3001` through a Next.js rewrite and uses the same origin for Socket.IO.
 
-### العناوين المحلية
+### Local URLs
 
-| الخدمة | العنوان |
+| Service | URL |
 | --- | --- |
-| لوحة التحكم | [http://localhost:3005](http://localhost:3005) |
+| Dashboard | [http://localhost:3005](http://localhost:3005) |
 | API | `http://localhost:3001/api/v1/shuttle` |
 | Swagger | `http://localhost:3001/api/v1/shuttle/docs` |
-| فحص الصحة | `http://localhost:3001/health` |
-| المقاييس | `http://localhost:3001/metrics` |
+| Health check | `http://localhost:3001/health` |
+| Metrics | `http://localhost:3001/metrics` |
 | MinIO Console | `http://localhost:9001` |
 
-## تسجيل الدخول
+## Authentication
 
-الحسابات يجب أن تكون موجودة مسبقاً في قاعدة البيانات، ولا يدعم النظام التسجيل الذاتي. وحدة ومسارات OTP معلّقة حالياً في إعدادات الباك؛ لذلك تحقق من عقد المصادقة الفعلي في Swagger قبل تجربة الدخول. راجع بيانات seed في `beroya-shuttle/prisma/` لمعرفة الحسابات المحلية المتاحة، واستخدم بيانات التطوير محلياً فقط.
+Accounts must already exist in the database; self-service registration is not supported. The OTP module and routes are currently parked in the backend configuration, so check the active authentication contract in Swagger before attempting to sign in. See the seed files in `beroya-shuttle/prisma/` for locally available accounts, and use development credentials only in local environments.
 
-## الإعدادات والربط
+## Configuration and integration
 
-- في الفرونت، يحدد `BACKEND_URL` عنوان الباك الذي يستخدمه Next.js لإعادة توجيه `/api/v1/shuttle/*`.
-- يحدد `NEXT_PUBLIC_SOCKET_URL` عنوان Socket.IO المتاح للمتصفح، عادةً عنوان الباك نفسه.
-- أبقِ `NEXT_PUBLIC_API_BASE` على `/api/v1/shuttle` للاستفادة من rewrite وتجنب إعداد CORS للطلبات العادية.
-- إعدادات `NEXT_PUBLIC_*` تصل إلى المتصفح؛ لا تضع فيها أسراراً.
-- إعدادات الباك الإلزامية وقواعد التحقق موجودة في `beroya-shuttle/src/config/env.schema.ts`.
+- In the frontend, `BACKEND_URL` sets the backend origin used by Next.js to rewrite `/api/v1/shuttle/*` requests.
+- `NEXT_PUBLIC_SOCKET_URL` sets the Socket.IO origin available to the browser, typically the backend origin.
+- Keep `NEXT_PUBLIC_API_BASE` set to `/api/v1/shuttle` to use the rewrite for REST requests.
+- `NEXT_PUBLIC_*` settings are exposed to browser code; do not put secrets in them.
+- Required backend settings and validation rules are defined in `beroya-shuttle/src/config/env.schema.ts`.
 
-## الأوامر الأساسية
+## Essential commands
 
-| المجلد | الأمر | الاستخدام |
+| Directory | Command | Purpose |
 | --- | --- | --- |
-| `beroya-shuttle` | `npm run dev` | تشغيل API في وضع التطوير. |
-| `beroya-shuttle` | `npm run start:worker:dev` | تشغيل عامل المهام في وضع التطوير. |
-| `beroya-shuttle` | `npm run build` | بناء الباك. |
-| `beroya-shuttle` | `npm run typecheck` | فحص أنواع TypeScript للباك. |
-| `shuttle_dashboard` | `npm run dev` | تشغيل لوحة التحكم على المنفذ 3005. |
-| `shuttle_dashboard` | `npm run build` | بناء الفرونت للإنتاج. |
-| `shuttle_dashboard` | `npm run lint` | تشغيل ESLint للفرونت. |
+| `beroya-shuttle` | `npm run dev` | Start the API in development mode. |
+| `beroya-shuttle` | `npm run start:worker:dev` | Start the background worker in development mode. |
+| `beroya-shuttle` | `npm run build` | Build the backend. |
+| `beroya-shuttle` | `npm run typecheck` | Type-check the backend. |
+| `shuttle_dashboard` | `npm run dev` | Start the dashboard on port 3005. |
+| `shuttle_dashboard` | `npm run build` | Build the frontend for production. |
+| `shuttle_dashboard` | `npm run lint` | Run ESLint on the frontend. |
 
-## النشر
+## Deployment
 
-لكل تطبيق إعداد بناء وتشغيل مستقل. جهّز خدمات وبيانات اعتماد الإنتاج، واضبط عناوين API وSocket.IO، ثم ابنِ كل تطبيق من مجلده باستخدام أوامر npm أعلاه. يحتوي مجلد الباك على ملفات Docker وCompose ومساعد staging؛ راجع إعداداته ومتغيرات البيئة قبل اعتمادها في أي بيئة نشر.
+Each application has its own build and runtime configuration. Provide production-grade infrastructure and credentials, configure the API and Socket.IO origins, and build each application from its own directory. The backend includes Docker and Compose files plus a staging helper; review their settings and environment configuration before using them in a deployment environment.
 
-## التوثيق التفصيلي
+## Detailed documentation
 
-- [README الباك: التشغيل، البيئة، API، العامل الخلفي، والنشر](beroya-shuttle/README.md)
-- [README الفرونت: الواجهة، الإعدادات، التكامل، والبناء](shuttle_dashboard/README.md)
+- [Backend README: setup, environment, API, worker, and deployment](beroya-shuttle/README.md)
+- [Frontend README: dashboard, configuration, integration, and build](shuttle_dashboard/README.md)
 
-## الترخيص
+## License
 
-المشروع خاص وغير مرخص لإعادة التوزيع حالياً.
+This is a private project and is not currently licensed for redistribution.
